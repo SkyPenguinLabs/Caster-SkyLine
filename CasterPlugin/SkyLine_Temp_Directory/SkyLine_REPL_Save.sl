@@ -1,3 +1,0 @@
-InitiatePlugin("CasterPCAP")
-
-ExecuteFF("Call")
