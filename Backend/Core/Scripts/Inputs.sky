@@ -1,0 +1,14 @@
+
+//70286656-eda7-3972-8fd0-d49e86d88dcc
+define CasterInput(message) {
+    set msg := "{}[{}Caster{}@{}Local{}]({})>{}".Format(
+            console.HtmlToAnsi("42f5bf", ""),
+            console.HtmlToAnsi("5d42f5", ""),
+            console.HtmlToAnsi("48f542", ""),
+            console.HtmlToAnsi("5d42f5", ""),
+            console.HtmlToAnsi("42f5bf", ""),
+            message,
+            console.HtmlToAnsi("48f542", ""));
+    set indata := io.input(msg, "n");
+    return indata;
+}

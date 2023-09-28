@@ -1,0 +1,5 @@
+!-   Casters Argument List With Description -!
+
+cmd: Syntax of arguments are 'argument=value' which are listed below!
+arp:  ARP values are 'on / off'  | This will enable or disable the ARP module
+ssdp: ssdp values are 'on / off' | This will enable or disable the SSDP module
