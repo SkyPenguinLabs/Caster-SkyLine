@@ -1,0 +1,9 @@
+{
+    "Project-Information": {
+        "Name": "Caster",
+        "Description": "IoT Manipulation Framework",
+        "Supported-OS": "Linux",
+        "Languages": "SkyLine, Golang, SkyLine-Configuration",
+        "Version": "1.5.0"
+    }
+}

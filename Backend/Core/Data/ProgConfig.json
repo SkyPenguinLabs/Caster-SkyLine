@@ -1,0 +1,10 @@
+{
+    "CasterConfig": [
+        {
+            "Interface": "eth0",
+            "PcapFile": "file.pcap",
+            "ARP": true,
+            "SSDP": true
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+
+define VerifyHostOnNetwork(addr) {
+    set Res := json.Parse("Backend/UnitDatabase/Capture.json")["Device"];
+    set Rows := [];
+    set Cols := ["Address", "Mac", "Name"];
+    foreach section in Res {
+        
+        if (section["IPA"] == addr) {
+            Rows.Append(
+                [
+                    section["IPA"],
+                    section["MAC"],
+                    section["Name"]
+                ]
+            )
+            print(" \n > Info: Found some information in the host databse \n ")
+            println(console.Table(Rows, Cols))
+            set newdata := `{
+    "Device": [
+        {
+            "IP": "{}",
+            "Brand": "{}",
+            "Database": "{}" 
+        }
+    ]
+}`.Format(
+    section["IPA"],
+    section["Name"],
+    section["SkyLine_DB"]);
+            File.New("Backend/UnitDatabase/TargetInfo.json")
+            File.Overwrite(newdata)
+        }
+    };
+}
+
+

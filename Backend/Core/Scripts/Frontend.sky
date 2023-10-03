@@ -1,0 +1,201 @@
+
+define RestoreStd(color="56fc03") {
+    println(console.HtmlToAnsi(color, ""))
+}
+
+define Banner() {
+    set contents := File.Open("Backend/Core/Data/Banner.txt");
+    println(
+        contents.Format(
+            console.HtmlToAnsi("4c02a8", ""),
+            console.HtmlToAnsi("FF5F00", ""),
+            console.HtmlToAnsi("FF5F00", ""),
+            console.HtmlToAnsi("FF5F00", ""),
+            console.HtmlToAnsi("4c02a8", "")
+        )
+    )
+    RestoreStd()
+}
+
+define NewLn() {
+    println("")
+}
+
+
+define Logger(message, type) {
+    switch (type) {
+        case "debug" {
+            print("{}[Caster] {}DEBUG: {}".Format(
+                console.HtmlToAnsi("fa5b05", ""),
+                console.HtmlToAnsi("0ee6c2", ""), 
+                message))
+            RestoreStd()
+        }
+        case "error" {
+            print("{}[Caster] {}ERROR:FATAL -> {}".Format(
+                console.HtmlToAnsi("fa5b05", ""),
+                console.HtmlToAnsi("b00000", ""),
+                message))
+            RestoreStd()
+        }
+        case "warning" {
+            print(
+            "{}[{}Caster{}@{}Local{}]{}(Warning)>{}".Format(
+                console.HtmlToAnsi("42f5bf", ""),
+                console.HtmlToAnsi("5d42f5", ""),
+                console.HtmlToAnsi("48f542", ""),
+                console.HtmlToAnsi("5d42f5", ""),
+                console.HtmlToAnsi("42f5bf", ""),
+                console.HtmlToAnsi("e3f542", ""),
+                message
+            ))
+            RestoreStd()
+        }
+        default {
+            print("{}[Caster] Message: {}".Format(console.HtmlToAnsi("fa5b05", ""), message))
+        }
+    }   
+}
+
+define ConsoleHelp() {
+    console.TableNew(
+        console.HtmlToAnsi(
+            "03fcb6", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        `━`, 
+        `┃`, 
+        `┫`, 
+        `┣`
+    );
+                print(console.HtmlToAnsi("2af00c", "", false))
+                println("\t ------------------------------------------------------------")
+                println("\t Welcome to Caster! The IoT manipulation framework dedicated to")
+                println("\t abusing API endpoints within devices! (Google Cast, FireTV, etc)")
+                println("\t So, let us get to hekin shall we?")
+                println(" \n ")
+                println("\t Console / Command Root Syntax")
+                println("\t ---------------------------")
+                println("\t [!]   | <module> <action>")
+                println("\t [e.g] | set device=10.0.0.1")
+                println("")
+                println(" 
+                    Console syntax might be tricky for you! But no worries 
+                    I promise it is a ton more easier than it may seem. Below
+                    is a table of data you can check for console modules then console commands
+            ----------------------------------------------------------------- \n 
+                ")
+            set Cols := ["Module", "Description", "Valid or Working?", "Topic"];
+            set Rows := [
+                ["enumerate", "Enumerate IoT devices (apple, roku, etc)", "Working / Active", "enumeration"],
+                ["set", "Set values such as targets", "Working / Active", "Input Control"],
+                ["view", "View data such as target info and settings", "Working / Active", "Output"]
+            ];
+            println(console.Table(Rows, Cols))
+            Cols = ["Module", "Command", "Description", "Example"];
+            Rows = [
+                ["enumerate", "roku-executeactions", "Execute one or more actions from the 'Roku_DevActions.json' file ", "roku-executeactions"],
+                ["enumerate", "roku-startapp", "Start an application on the Roku device", "roku-startapp"],
+                ["enumerate", "roku-searchquery", "Tell the roku device to search for something", "roku-searchquery"],
+                ["enumerate", "roku-dialinfo", "Get dial information", "roku-dialinfo"],
+                ["enumerate", "roku-devinfo", "Get Roku device info", "roku-devinfo"],
+                ["enumerate", "roku-getapps", "Get all apps on the Roku device", "roku-getapps"],
+                ["enumerate", "roku-getrawapps", "Print raw XML server response for apps", "roku-getrawapps"],
+                ["enumerate", "roku-currentapp", "Get the current running app ", "roku-currentapp"],
+                ["enumerate", "roku-remote", "Start a interactive console to remote control roku devices", "roku-remote"],
+                ["enumerate", "cast-setupinfo", "Get google Cast device information", "cast-setupinfo"],
+                ["enumerate", "cast-legacyconfig", "Get legacy configuration for Google Casts", "cast-setupinfo"],
+                ["enumerate", "cast-legacyapps", "Get a list of standard apps and their IDs for Google Casts", "cast-legacyapps"],
+                ["enumerate", "cast-activeapp", "Get the currently running app on a Google Cast", "cast-activeapp"],
+                ["enumerate", "cast-shutdownapp", "Shut down an application on a Google Cast given an ID", "cast-shutdownapp"],
+                ["enumerate", "cast-devdescription", "Google Cast device description (SSDP)", "cast-devdescription"],
+                ["enumerate", "cast-changename", "Change the name of a Google Cast", "cast-changename"],
+                ["enumerate", "apple-airplayinfo", "Dissect the BPLIST file of the AirPlay server on an AppleTV", "apple-airplayinfo"],
+                ["enumerate", "apple-streaminfo", "Dissect the stream information from an AirPlay server on an AppleTV", "apple-streaminfo"],
+                ["enumerate", "apple-serverinfo", "Dissect the AirPlay server information PLIST file", "apple-serverinfo"],
+                ["enumerate", "amazon-devdesc", "Use a amazon UUID to access the UPNP server on a amazon smart device", "amazon-devdesc"],
+                ["view", "clear", "Clear the output", "view clear"],
+                ["view", "clearout", "Clear the output but print banner", "view clearout"],
+                ["view", "hosts", "View all scanned hosts and devices", "view hosts"],
+                ["view", "amazon", "View scanned hosts filtered for amazon devices", "view amazon"],
+                ["view", "google", "View scanned hosts filtered for Google devices", "view google"],
+                ["view", "roku", "View all scanned hosts and devices filtered for Roku devices", "view roku"],
+                ["view", "apple", "View all scanned hosts and devices filtered for Apple devices", "view apple"],
+                ["view", "settings", "View the current host and target device", "view settings"]
+            ];
+            println(console.Table(Rows, Cols))
+}
+
+define Help(kind="arguments") {
+        console.TableNew(
+        console.HtmlToAnsi(
+            "03fcb6", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        `━`, 
+        `┃`, 
+        `┫`, 
+        `┣`
+    );
+
+                print(console.HtmlToAnsi("2af00c", "", false))
+                println("\t ------------------------------------------------------------")
+                println("\t Welcome to Caster! The IoT manipulation framework dedicated to")
+                println("\t abusing API endpoints within devices! (Google Cast, FireTV, etc)")
+                println("\t So, let us get to hekin shall we?")
+                println(" \n ")
+                println("\t Programmatic Command Syntax [ must be root ]")
+                println("\t ---------------------------")
+                println("\t [!]   | sudo SkyLine Caster.sl <flags>")
+                println("\t [e.g] | sudo SkyLine Caster.sl --inter=enp10s0 --strict=off")
+                println("")
+                println(" 
+            flag syntax is as follows (FLAG, DATA TYPE, Description, Options)
+            note: specific sections will all have their own unique flag tables
+                  all of which require you to specify that flag to unlock that
+                  option. 
+            ----------------------------------------------------------------- \n 
+                ")
+                set Cols := ["Full Flag", "Data Type", "Description", "Valid/Working", "Topic", "Required Flag"];
+                set Rows := [
+                    ["--interface", "String | None", "Interface to listen on", "Stable/Working",  "Required", "Capture"],
+                    ["--strict", "String | None", "Throw caster in strict mode", "Unsafe/Working", "Optional / Input", "None"],
+                    ["--debug", "None | Bool", "Allow Caster Debug Output", "Stable/Working", "Output", "None"],
+                    ["--arpdelim", "None | Any", "Seconds until next batch of ARP requests (def=10)", "Stable/Working", "ARP Module", "None"],
+                    ["--verbosity", "None | Any", "Verbose Output", "Stable/Working", "ARP Module", "None"],
+                    ["--server", "None | Any", "Digital analytics", "Disabled", "Analysis", "None"],
+                    ["--currentscan", "None | Any", "Output the current scan database", "Stable/Working", "User Info", "None"],
+                    ["--current", "None | Any", "View Currently Configured Host", "Stable/Working", "User Info","None"],
+                    ["--databases", "None | Any", "View configurable databases", "Stable/Working", "User Info","None"],
+                    ["--import", "None | Any", "Import scan data instantly", "Stable/Working", "Config", "None"],
+                    ["--cli", "None | Any", "Caster CLI Module ", "Stable/Working", "Control", "None | Used with others"],
+                    ["--target ", "None | Any", "Specify a target", "Stable/Working", "Interactive", "--cli"],
+                    ["--stringbplist", "None | Any", "Output strings from a given Apple BPLIST file", "Stable/Working", "Interactive", "--cli"],
+                    ["--formattargets", "None | Any", "Output all APIs that Caster abuses", "Disabled (Proprietary)", "Translation", "--cli"],
+                    ["--ECPConsole", "None | Any", "Enter the RokuECP console", "Stable/Working", "Translation","--target & --cli"],
+                    ["--arp", "String | None", "Tell Caster to turn its ARP module `on` or `off`", "Stable/Working", "Translation","None"]
+                ];
+                println(console.Table(Rows, Cols))
+}

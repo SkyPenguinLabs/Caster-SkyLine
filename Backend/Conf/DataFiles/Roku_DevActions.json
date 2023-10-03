@@ -1,0 +1,44 @@
+{
+    "RokuDevActions": [
+        {
+            "Keypress": "home",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "up",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "ok",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "down",
+            "WaitSleep": "1",
+            "Repeat": "13"
+        },
+        {
+            "Keypress": "right",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "up",
+            "WaitSleep": "2",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "right",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        },
+        {
+            "Keypress": "ok",
+            "WaitSleep": "1",
+            "Repeat": "0"
+        }
+    ]
+}

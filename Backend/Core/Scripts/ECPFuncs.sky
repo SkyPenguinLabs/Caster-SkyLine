@@ -1,0 +1,72 @@
+define Sleep(time) {
+    halt(
+        int(time),
+        "miliseconds"
+    );
+};
+
+set CommandActions_Arr := [
+    "up",
+    "down",
+    "left",
+    "right",
+    "devup",
+    "devdown",
+    "options",
+    "ok",
+    "home",
+    "back",
+    "volup",
+    "voldown",
+    "volmute",
+    "pause"
+];
+
+set CommandActions_ECP := {
+    "up": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressUp, time)
+    },
+    "down": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressDown, time)
+    },
+    "left": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressLeft, time)
+    },
+    "right": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressRight, time)
+    },
+    "home": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressHome, time)
+    },
+    "back": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressBack, time)
+    },
+    "ok": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressSelect, time)
+    },
+    "play": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressPlay, time)
+    },
+    "volmute": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressVolumeMute, time)
+    },
+    "volup": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressVolumeUp, time)
+    },
+    "voldown": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressVolumeDown, time)
+    },
+    "poweroff": Func(target, time) {
+        SendRokuCommand(target, Roku.KeyPressPoweroff, time)
+    }
+};
+
+define SendRokuCommand(target, command, time) {
+    http.NullPost(
+        sprintf(
+            command,
+            target
+        )
+    );
+    Sleep(time);
+}
