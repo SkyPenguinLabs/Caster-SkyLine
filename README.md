@@ -8,3 +8,17 @@ Recently, the developers of SkyLine and @Totally_Not_A_Haxxer came together to b
 For any information about this framework, please visit the following link
 
 > https://skypeguinsolutions.gitbook.io/skyline/skyline-experiments/introduction-to-module/caster-iot-manipulation-with-skyline
+
+## Demonstrations
+
+> Apple AirPlay Server Information
+![](Assets/Caster_Apple-ServerInfo.png)
+
+> Google ChromeCast Device Information
+![](Assets/ChromeCastSetup_Caster.png)
+
+> Apple AirPlay RTSP Server Info
+![](Assets/Caster_AirPlayinfo.png)
+
+> Caster Help Screen
+![](Assets/Caster_Demo_Help.png)
