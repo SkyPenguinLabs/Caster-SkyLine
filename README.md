@@ -1,7 +1,10 @@
 ![](Assets/IoTOpenImage.png)
 
 ## Caster - IoT Manipulation Made Fun
-Recently, the developers of SkyLine and @Totally_Not_A_Haxxer came together to build one of the very first technologies built using the SkyLine programming language! Caster, basically allows you to manipulate more than 1 smart TV and can span across devices from brands such as Amazon FireSticks, Apple TVs, Google Chromecasts, Roku TVs, and more!
+Recently, the developers of SkyLine and @Totally_Not_A_Haxxer came together to build one of the very first technologies built using the SkyLine programming language! Caster, basically allows you to manipulate more than 1 
+smart TV and can span across devices from brands such as Amazon FireSticks, Apple TVs, Google Chromecasts, Roku TVs, and more!
+
+> Warning: This script only runs on the current build of SkyLine (0.10.0 | Nightly - X64_86) so please make sure that you have a X64_86 machine before hand. SkyLine and Caster are proprietary software sets developed by SkyPenguin-Labs, so building from source-code is not a plausible option. 
 
 ## How To
 
