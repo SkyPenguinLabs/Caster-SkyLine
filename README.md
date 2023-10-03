@@ -7,7 +7,9 @@ Recently, the developers of SkyLine and @Totally_Not_A_Haxxer came together to b
 
 For any information about this framework, please visit the following link
 
-> https://skypeguinsolutions.gitbook.io/skyline/skyline-experiments/introduction-to-module/caster-iot-manipulation-with-skyline
+> **GitBook** - https://skypeguinsolutions.gitbook.io/skyline/skyline-experiments/introduction-to-module/caster-iot-manipulation-with-skyline
+
+> **YouTube Demo Playlist | Caster** - https://www.youtube.com/watch?v=wcN6mh5SO8M&list=PLjdGpZIIr-0gtGn8ERB1V53pXGzg9QBy-
 
 ## Demonstrations
 
